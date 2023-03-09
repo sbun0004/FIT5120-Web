@@ -41,10 +41,6 @@ app.layout = html.Div(children=[
             
         ]
     ),
-    
-     html.Div([
-        html.Label("Test by Weiheng")
-     ])
 
     dash.page_container
 ])
