@@ -38,6 +38,7 @@ app.layout = html.Div(children=[
                 )
             )
             for page in dash.page_registry.values()
+            
         ]
     ),
 
