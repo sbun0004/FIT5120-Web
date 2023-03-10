@@ -7,8 +7,8 @@ def home():
 
 @app.route('/about')
 def about():
-    return 'About'
+    return 'about'
 
 @app.route('/volunteer')
 def volunteer():
-    return 'Volunteer'
+    return 'volunteer'
