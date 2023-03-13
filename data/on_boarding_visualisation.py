@@ -53,6 +53,7 @@ fig.update_layout(
     yaxis_title='Tons',
     title='Recycle Collected and Processed From 2001 to 2019',
     hovermode="x")
+fig.write_html("Recycle_Collected.html")
 fig.show()
 
 """## Second Visualisation"""
@@ -64,7 +65,7 @@ wastecollected.head()
 wasteprocessed = pd.DataFrame(df.groupby(by=['Year'])['Total Annual Tonnes of Waste Processed / Sorted'].sum().reset_index())
 wasteprocessed['Year'].astype(int)
 
-fig = go.Figure([
+fig2 = go.Figure([
     go.Scatter( name='Collected',
         x=wastecollected["Year"],
         y=wastecollected["Total Annual Tonnes of Waste Collected"],
@@ -78,9 +79,10 @@ fig = go.Figure([
         marker=dict(color='red', size=2),
         showlegend=True)
 ])
-fig.update_layout(
+fig2.update_layout(
     xaxis_title='Year',
     yaxis_title='Tons',
     title='Total Waste Collected and Processed From 2001 to 2019',
     hovermode="x")
-fig.show()
+fig2.write_html("Total_Waste.html")
+fig2.show()
