@@ -13,10 +13,6 @@ import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly
-import plotly.offline as py
-import plotly.tools as tls
-import plotly.graph_objs as go
-import plotly.tools as tls
 import plotly.express as px
 
 df = pd.read_csv('waste_data.csv')
@@ -56,5 +52,35 @@ fig.update_layout(
     xaxis_title='Year',
     yaxis_title='Tons',
     title='Recycle Collected and Processed From 2001 to 2019',
+    hovermode="x")
+fig.show()
+
+"""## Second Visualisation"""
+
+wastecollected = pd.DataFrame(df.groupby(by=['Year'])['Total Annual Tonnes of Waste Collected'].sum().reset_index())
+wastecollected['Year'].astype(int)
+wastecollected.head()
+
+wasteprocessed = pd.DataFrame(df.groupby(by=['Year'])['Total Annual Tonnes of Waste Processed / Sorted'].sum().reset_index())
+wasteprocessed['Year'].astype(int)
+
+fig = go.Figure([
+    go.Scatter( name='Collected',
+        x=wastecollected["Year"],
+        y=wastecollected["Total Annual Tonnes of Waste Collected"],
+        mode='lines',
+        marker=dict(color='blue', size=2),
+        showlegend=True),
+    go.Scatter( name='Processed',
+        x=wasteprocessed["Year"],
+        y=wasteprocessed["Total Annual Tonnes of Waste Processed / Sorted"],
+        mode='lines',
+        marker=dict(color='red', size=2),
+        showlegend=True)
+])
+fig.update_layout(
+    xaxis_title='Year',
+    yaxis_title='Tons',
+    title='Total Waste Collected and Processed From 2001 to 2019',
     hovermode="x")
 fig.show()
