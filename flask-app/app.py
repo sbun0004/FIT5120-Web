@@ -13,11 +13,28 @@ def home():
 
 @app.route('/volunteering')
 def volunteering():
+    lon = 143.93109284099341
+    lat = -36.96788448566131
     markers=[
-   {
-   'lon':143.93109284099341,
-   'lat':-36.96788448566131,
-   'popup':'Victoria'
+    {
+        'lon': lon+0.25,
+        'lat': lat+0.25,
+        'popup': "Event 1"
+    },
+    {
+        'lon': lon-0.25,
+        'lat': lat+0.25,
+        'popup': "Event 2"
+    },
+    {
+        'lon': lon+0.25,
+        'lat': lat-0.25,
+        'popup': "Event 3"
+    },
+    {
+        'lon': lon-0.25,
+        'lat': lat-0.25,
+        'popup': "Event 4"
     }
    ]
     return render_template('volunteering.html',markers=markers)
