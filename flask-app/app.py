@@ -19,22 +19,22 @@ def volunteering():
     {
         'lon': lon+0.25,
         'lat': lat+0.25,
-        'popup': "Event 1"
+        'popup': "Event: Cleaning the road, 17 April 2023,  "+str(lon+0.25)+" "+str(lat+0.25)
     },
     {
         'lon': lon-0.25,
         'lat': lat+0.25,
-        'popup': "Event 2"
+        'popup': "Event: Waste Sorting, 6 April 2023,  "+str(lon-0.25)+" "+str(lat+0.25)
     },
     {
         'lon': lon+0.25,
         'lat': lat-0.25,
-        'popup': "Event 3"
+        'popup': "Event: Reducing Waste, 12 April 2023,  "+str(lon+0.25)+" "+str(lat-0.25)
     },
     {
         'lon': lon-0.25,
         'lat': lat-0.25,
-        'popup': "Event 4"
+        'popup': "Event: Recycling, 23 April 2023,  "+str(lon-0.25)+" "+str(lat-0.25)
     }
    ]
     return render_template('volunteering.html',markers=markers)
