@@ -43,5 +43,13 @@ def volunteering():
 def history():
     return render_template('history.html')
 
+@app.route('/Recycle Trend')
+def Recycle():
+    return render_template('recycle.html')
+
+@app.route('/Waste Collected Trend')
+def Waste():
+    return render_template('totalwaste.html')
+
 if __name__ == '__main__':
    app.run()
