@@ -1,11 +1,6 @@
 from flask import Flask, render_template
-from flask_googlemaps import GoogleMaps
-from flask_googlemaps import Map
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
-GoogleMaps(app)
-
-app.config['GOOGLEMAPS_KEY'] = "8JZ7i18MjFuM35dJHq70n3Hx4"
 
 @app.route('/')
 def home():
@@ -43,12 +38,12 @@ def volunteering():
 def history():
     return render_template('history.html')
 
-@app.route('/Recycle Trend')
-def Recycle():
+@app.route('/recycle-trend')
+def recycle():
     return render_template('recycle.html')
 
-@app.route('/Waste Collected Trend')
-def Waste():
+@app.route('/waste-collected-trend')
+def waste():
     return render_template('totalwaste.html')
 
 if __name__ == '__main__':
